@@ -71,8 +71,6 @@ abstract class Db_persistence extends Db{
 	function delete_data($params){
 		$msg = null;
 		if($this->delete($this->table, [['id', '=', $params[0]['id']]])):
-			if(isset($params[0]['img']) && !empty($params[0]['img']))
-				unlink($this->path.$params[0]['img']);			
 			$msg = 1;
 		else:
 			$msg = 0;
