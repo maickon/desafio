@@ -1,4 +1,5 @@
 <?php
+require '../../config.php';
 require '../../header.php';
 
 $tag->div(['class'=>'container-fluid']);
@@ -45,7 +46,7 @@ $tag->div(['class'=>'container-fluid']);
 	    	$tag->printer('Add');
 	    $tag->button;
 
-	    $tag->a('href="'.$config['produtos']['produtos_new_path'].'" data-bind="click: addProduto" class="btn btn-primary"');
+	    $tag->a('href="'.$config['produtos']['produtos_new_file'].'" data-bind="click: addProduto" class="btn btn-primary"');
 	    	$tag->printer('New');
 	    $tag->a;
 
