@@ -21,12 +21,13 @@ class Db{
     private $conn, $dns, $db, $db_type, $host, $user, $pass;
     
     public function __construct(){
+        global $config;
         if($this->checkDatabaseIsActive()):
-            $this->db = DB_NAME;
+            $this->db = 'desafio';//$config['data_base']['db_name'];
             $this->db_type = "mysql";
-            $this->host = DB_HOST;
-            $this->user = DB_USER;
-            $this->pass = DB_PASS;
+            $this->host = 'localhost';//$config['data_base']['db_host'];
+            $this->user = 'root';//$config['data_base']['db_user'];
+            $this->pass = '';//$config['data_base']['db_pass'];
 
             $this->dns = $this->db_type . ":host=" . $this->host . ";dbname=" . $this->db;
 
