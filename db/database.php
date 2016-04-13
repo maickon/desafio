@@ -6,5 +6,5 @@ $data_base =
 	'db_user' => 'root',
 	'db_pass' => '',
 	'db_name' => 'desafio',
-	'db_host' => 'localhost'
+	'db_host' => '127.0.0.1'
 ];
