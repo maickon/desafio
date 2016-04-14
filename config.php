@@ -9,8 +9,6 @@ require 'labels/labels.php';
 //arquivo de configuracao
 $config = 
 [	
-	//configuracao do DB
-	'data_base' 	=> $data_base,
 	//configuracao das pastas
 	'base_url'		=> 'http://127.0.0.1/desafio-luxfacta/',
 	'base_path'		=> 'C:/xampp/htdocs/desafio-luxfacta/',
