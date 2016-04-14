@@ -273,6 +273,11 @@ class Form{
 	//criam colunas com base no numero informado por parametro
 	//baseado no bootstrap
 
+	function link_to_close(){
+		$input = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+		echo $input;
+	}
+
 	function link_button($name, $href, $class="btn btn-default"){
 		echo '<a class="'.$class.'" href="'.$href.'" role="button">'.$name.'</a>';
 	}
