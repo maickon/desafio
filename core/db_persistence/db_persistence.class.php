@@ -7,20 +7,14 @@ abstract class Db_persistence extends Db{
 	protected $success_msg;
 	protected $alert_msg;
 	
-	function __construct(
-						$table, 
-						$path, 
-						$warning_msg, 
-						$danger_msg = 'Um erro ocoreu, contate o administrador.', 
-						$success_msg = 'Registro atualizado com sucesso.', 
-						$alert = 'Já existe um registro com este nome!'
-						){
+	function __construct($table, $path){
+		global $config;
 		parent::__construct();
 		$this->table = $table;
 		$this->path = $path;
-		$this->warning_msg = $warning_msg;
-		$this->danger_msg = $danger_msg;
-		$this->success_msg = $success_msg;
+		$this->warning_msg 	= $config['labels']['warning_msg'];
+		$this->danger_msg 	= $config['labels']['danger_msg'];
+		$this->success_msg 	= $config['labels']['success_msg'];
 	}
 	
 	function create($params){
@@ -37,7 +31,7 @@ abstract class Db_persistence extends Db{
 		endforeach;
 				
 		if($this->check_duplicate_name($values) != ' '):
-			new Flashmsg('warning', $this->warning_msg);	
+			new Flashmsg('success', $this->warning_msg);
 		elseif($this->insert($this->table, $fields, $values)):
 			new Flashmsg('success', $this->success_msg);
 		else:
@@ -61,7 +55,6 @@ abstract class Db_persistence extends Db{
 		if($this->check_duplicate_name($values) != ' '):
 			new Flashmsg('warning', $this->warning_msg);	
 		elseif($this->update($this->table, $fields, $values, 'id', $params['id'])):
-			//$this->save_file($params);
 			new Flashmsg('success', $this->success_msg);
 		else:
 			new Flashmsg('danger', $this->danger_msg);
