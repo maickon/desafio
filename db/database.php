@@ -1,10 +1,7 @@
 <?php
 
 //Configuracao de suario e senha do banco de dados
-$data_base = 
-[
-	'db_user' => 'root',
-	'db_pass' => '',
-	'db_name' => 'desafio',
-	'db_host' => '127.0.0.1'
-];
+define('DB_USER', "root");		
+define('DB_PASS', "");	  		
+define('DB_NAME', "desafio"); 	
+define('DB_HOST', "localhost");
