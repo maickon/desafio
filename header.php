@@ -11,6 +11,9 @@ $tag->html();
     $tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['base_url'].$config['css_path'].'jquery.dataTables.min.css']);
     $tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['base_url'].$config['css_path'].'bootstrap.min.css']);
     $tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['base_url'].$config['css_path'].'bootstrap-theme.min.css']);
+    $tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['base_url'].$config['css_path'].'index.css']);
+    $tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['base_url'].$config['css_path'].'dataTables.bootstrap.min.css']);
+    
   $tag->head;
 
   $tag->body();
