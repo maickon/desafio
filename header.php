@@ -8,12 +8,17 @@ $tag->html();
       $tag->printer($config['project_name']);
     $tag->title;
     $tag->meta('name="viewport" content="width=device-width, initial-scale=1"');
-    $tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['base_url'].$config['css_path'].'jquery.dataTables.min.css']);
     $tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['base_url'].$config['css_path'].'bootstrap.min.css']);
-    $tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['base_url'].$config['css_path'].'bootstrap-theme.min.css']);
-    $tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['base_url'].$config['css_path'].'index.css']);
     $tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['base_url'].$config['css_path'].'dataTables.bootstrap.min.css']);
+    $tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['base_url'].$config['css_path'].'index.css']);
     
+    $tag->script('src="'.$config['base_url'].$config['js_path'].'jquery-1.12.0.min.js"'); $tag->script;
+    $tag->script('src="'.$config['base_url'].$config['js_path'].'bootstrap.min.js"'); $tag->script;
+    $tag->script('src="'.$config['base_url'].$config['js_path'].'jquery.dataTables.min.js"'); $tag->script;
+    $tag->script('src="'.$config['base_url'].$config['js_path'].'dataTables.bootstrap.min.js"'); $tag->script;
+    $tag->script('src="'.$config['base_url'].$config['js_path'].'jquery.validate.js"'); $tag->script;
+    $tag->script('src="'.$config['base_url'].$config['js_path'].'jquery.maskMoney.min.js"'); $tag->script;
+    $tag->script('src="'.$config['base_url'].$config['js_path'].'knockout-3.4.0.js"'); $tag->script;
   $tag->head;
 
   $tag->body();
