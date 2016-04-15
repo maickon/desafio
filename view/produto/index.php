@@ -2,14 +2,10 @@
 require '../../header.php';
 require '../helper.php';
 
-$tag->printer('
-			<script type="text/javascript" charset="utf-8">
-				$(document).ready(function() {
-					$(\'#example\').DataTable();
-				} );
-			</script>
-			');
-
+$tag->script('src="'.$config['js_path'].'index.js"'); $tag->script;
+$tag->script('src="'.$config['js_path'].'index.js"'); $tag->script;
+?>
+<?php
 $produto = new Produto('');
 $produtos = $produto->select($produto->getTable());
 
@@ -27,7 +23,7 @@ $form->_row();
 			
 			$form->_col(1);	
 			    $tag->a('href="'.$config['produtos']['produtos_new_file'].'" data-bind="click: addProduto" class="btn btn-primary"');
-			    	$tag->printer('New');
+			    	$tag->printer($config['labels']['new']);
 			    $tag->a;
 			$form->col_();
 
@@ -68,15 +64,6 @@ $form->_row();
 
 		    //chama a mensagem de alert 
 			helper_modal_alert_confirm();
-			
-			$tag->printer('
-					<script type="text/javascript">
-						// For demo to fit into DataTables site builder...
-						$(\'#example\')
-							.removeClass( \'display\' )
-							.addClass(\'table table-striped table-bordered\');
-					</script>
-					');
 
 	    	$tag->br();
 	  	$form->col_();
