@@ -6,7 +6,8 @@ abstract class Db_persistence extends Db{
 	protected $danger_msg;
 	protected $success_msg;
 	protected $alert_msg;
-	
+	protected $update_msg;
+
 	function __construct($table, $path){
 		global $config;
 		parent::__construct();
@@ -15,6 +16,7 @@ abstract class Db_persistence extends Db{
 		$this->warning_msg 	= $config['labels']['warning_msg'];
 		$this->danger_msg 	= $config['labels']['danger_msg'];
 		$this->success_msg 	= $config['labels']['success_msg'];
+		$this->update_msg 	= $config['labels']['update_msg'];
 	}
 	
 	function create($params){
@@ -39,7 +41,7 @@ abstract class Db_persistence extends Db{
 		endif;
 	}
 	
-	function update_data($params, $file = true){
+	function update_data($params){
 		$fields = [];
 		$values = [];
 		foreach($params as $key => $attr):
@@ -55,7 +57,7 @@ abstract class Db_persistence extends Db{
 		if($this->check_duplicate_name($values) != ' '):
 			new Flashmsg('warning', $this->warning_msg);	
 		elseif($this->update($this->table, $fields, $values, 'id', $params['id'])):
-			new Flashmsg('success', $this->success_msg);
+			new Flashmsg('update', $this->update_msg);
 		else:
 			new Flashmsg('danger', $this->danger_msg);
 		endif;
