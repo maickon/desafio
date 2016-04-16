@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    $('#example').DataTable();
+} );  
+
 $(document).ready(function(){
 	$("#preco").maskMoney({
 		showSymbol:true, 
@@ -7,6 +11,28 @@ $(document).ready(function(){
 		precision: 2
 	});
 });
+
+function load_option_0(){
+  $.ajax({
+    url: '../produto/index.php',
+    method: "POST",
+    data: 'type=disponivel',
+    success : function(txt){
+                console.log(txt);
+              }
+  });
+}
+
+function load_option_1(){
+   $.ajax({
+    url: '../produto/index.php',
+    method: "POST",
+    data: 'type=indisponivel',
+    success : function(txt){
+                console.log(txt);
+              }
+  });
+}
 
 $(document).ready( function() {
   $("#form_produto").validate({
@@ -39,5 +65,4 @@ $(document).ready( function() {
 
 $('#confirm-delete').on('show.bs.modal', function(e) {
 	$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-    $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
 });
