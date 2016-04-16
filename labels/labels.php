@@ -11,6 +11,9 @@ $labels =
 		'view'	 		=> '<div class="icon-link">Visualizar</div>',
 		'back'			=> 'Voltar',
 		'cancel'		=> 'Cancelar',
+		'listar'		=> 'Listar',
+		'disponiveis'	=> 'Produtos disponíveis',
+		'indisponiveis'	=> 'Produtos indisponíveis',
 		//labels para produtos view
 		'produto' 		=> 'Produtos',
 		'new_produto' 	=> 'Novo Produto',
@@ -34,6 +37,8 @@ $labels =
 		'danger_msg'	=> 'Um erro ocorreu. Registro não pode ser cadastrado.',
 		'warning_msg'	=> 'Já existe um registro com este nome!',
 
+		'flash_delete_success_msg' => 'Registro deletado com sucesso.',
+
 		//mensagens do modal
 		'modal_delete_msg' 		=> 'Apagar dados',
 		'modal_warning_msg1'	=> 'Você tem certeza que deseja deletar isto?',
@@ -43,5 +48,6 @@ $labels =
 		'modal_delete_msg1'		=> 'Você está prestes a deletar um produto. Este processo é irreversível.',
 		'modal_delete_msg2'		=> 'Você tem certeza disso?',
 		'modal_delete_confirm_msg' => 'Confirmar para deletar produto'
+
 
 	];
