@@ -3,6 +3,11 @@
 require '../../header.php';
 require '../helper.php';
 
+//chama a mensagem de alert 
+helper_modal_alert_confirm();
+
+$tag->script('src="'.$config['js_path'].'index.js"'); $tag->script;	
+
 $produto = new Produto('');
 $produto_selecionado = $produto->select($produto->getTable(),null,[ ['id','=', $_GET['id']] ]);
 
@@ -40,7 +45,8 @@ $form->_row();
 						$tag->printer($config['labels']['update']);
 					$tag->a;
 
-					$tag->a('href="'.$config['base_url'].$config['produtos']['produtos_delete_path'].'?id='.$produto_selecionado[0]['id'].'" class="btn btn-danger"');
+					$delete_url = $config['base_url'].$config['produtos']['produtos_delete_path'].'?id='.$produto_selecionado[0]['id'];
+					$tag->a('href="#" data-href="'.$delete_url.'" data-toggle="modal" data-target="#confirm-delete" class="btn btn-danger"');
 						$tag->printer($config['labels']['delete']);
 					$tag->a;
 
