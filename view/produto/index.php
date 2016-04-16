@@ -2,25 +2,45 @@
 require '../../header.php';
 require '../helper.php';
 
-$tag->script('src="'.$config['js_path'].'index.js"'); $tag->script;
-$tag->script('src="'.$config['js_path'].'index.js"'); $tag->script;
-?>
-<?php
 $produto = new Produto('');
-$produtos = $produto->select($produto->getTable());
+
+if(isset($_POST['type']) && ($_POST['type'] == 'disponivel')){
+	$produtos = $produto->select($produto->getTable(), null, [['estoque_inicial','!=', 0]]);
+}elseif(isset($_POST['type']) && ($_POST['type'] == 'indisponivel')){
+	$produtos = $produto->select($produto->getTable(), null, [['estoque_inicial','==', 0]]);
+}else{
+	$produtos = $produto->select($produto->getTable());	
+}
+
+//chama a mensagem de alert 
+helper_modal_alert_confirm();
+
+$tag->script('src="'.$config['js_path'].'index.js"'); $tag->script;	
 
 $form->_row();
 	$form->_container();
+		$tag->br();
 		$form->_col(12);
-		
-			$tag->br();
+			if(isset($_GET['status']) && ($_GET['status'] == 'del'))
+				new Flashmsg('success',$config['labels']['flash_delete_success_msg']);
+		$form->col_();
 
-			$form->_col(11);
+		$form->_col(12);
+			
+			$form->_col(10);
 		  		$tag->span('class="title"');
 		    		$tag->printer($config['labels']['produto']);
 		  		$tag->span;
 		  	$form->col_();
-			
+		  	$options = [ 	//link 		  // label
+		  					[ '#',$config['labels']['disponiveis']   ], 
+		  					[ '#',$config['labels']['indisponiveis'] ]
+		  				];
+
+		  	$form->_col(1);
+				helper_single_button_dropdown($config['labels']['listar'], $options);
+			$form->col_();
+
 			$form->_col(1);	
 			    $tag->a('href="'.$config['produtos']['produtos_new_file'].'" data-bind="click: addProduto" class="btn btn-primary"');
 			    	$tag->printer($config['labels']['new']);
@@ -62,8 +82,6 @@ $form->_row();
 		      	$tag->tbody;
 		    $tag->table;
 
-		    //chama a mensagem de alert 
-			helper_modal_alert_confirm();
 
 	    	$tag->br();
 	  	$form->col_();
