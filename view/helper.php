@@ -47,7 +47,6 @@ function helper_modal_alert_confirm(){
 	global $form, $tag, $config;
 
 	$tag->div('class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"');
-	
 		$tag->div('class="modal-dialog"');
             $tag->div('class="modal-content"');
             
@@ -69,10 +68,6 @@ function helper_modal_alert_confirm(){
                     $tag->p();
  	                   $tag->printer($config['labels']['modal_delete_msg2']);
                     $tag->p;
-                    
-                    $tag->p('class="debug-url"');
-                    	$tag->printer('');
-                   	$tag->p;
                 $tag->div;
                 
                 $tag->div('class="modal-footer"');
@@ -86,5 +81,26 @@ function helper_modal_alert_confirm(){
                 $tag->div;
             $tag->div;
         $tag->div;	
+	$tag->div;
+}
+
+function helper_single_button_dropdown($name, $options){
+	global $form, $tag, $config;
+	$tag->div('class="btn-group"');
+	  $tag->button('type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"');
+	    $tag->printer($name); 
+	    $tag->span('class="caret"');
+	    $tag->span;
+	  $tag->button;
+	  
+	  $tag->ul('class="dropdown-menu"');	    
+	    foreach($options as $key => $value):
+		    $tag->li();
+		    	$tag->a('href="'.$value[0].'" onClick="load_option_'.$key.'();"');
+		    		$tag->printer($value[1]);
+		    	$tag->a;
+		    $tag->li;
+	   	endforeach;
+	  $tag->ul;
 	$tag->div;
 }
