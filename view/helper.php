@@ -84,7 +84,7 @@ function helper_modal_alert_confirm(){
 	$tag->div;
 }
 
-function helper_single_button_dropdown($name, $options){
+function helper_single_button_dropdown($name, $options, $function_name = 'load_option_'){
 	global $form, $tag, $config;
 	$tag->div('class="btn-group"');
 	  $tag->button('type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"');
@@ -96,7 +96,7 @@ function helper_single_button_dropdown($name, $options){
 	  $tag->ul('class="dropdown-menu"');	    
 	    foreach($options as $key => $value):
 		    $tag->li();
-		    	$tag->a('href="'.$value[0].'" onClick="load_option_'.$key.'();"');
+		    	$tag->a('href="'.$value[0].'" onClick="'.$function_name.$key.'();"');
 		    		$tag->printer($value[1]);
 		    	$tag->a;
 		    $tag->li;
