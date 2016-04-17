@@ -1,4 +1,5 @@
 <?php
+require '../../init.php';
 require '../../header.php';
 require '../helper.php';
 

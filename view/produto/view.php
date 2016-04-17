@@ -1,5 +1,5 @@
 <?php
-
+require '../../init.php';
 require '../../header.php';
 require '../helper.php';
 
@@ -46,7 +46,7 @@ $form->_row();
 					$tag->a;
 
 					$delete_url = $config['base_url'].$config['produtos']['produtos_delete_path'].'?id='.$produto_selecionado[0]['id'];
-					$tag->a('href="#" data-href="'.$delete_url.'" data-toggle="modal" data-target="#confirm-delete" class="btn btn-danger"');
+					$tag->a('href="#" data-href="'.$delete_url	.'" data-toggle="modal" data-target="#confirm-delete" class="btn btn-danger"');
 						$tag->printer($config['labels']['delete']);
 					$tag->a;
 
@@ -59,4 +59,5 @@ $form->_row();
 	$form->_container();
 $form->row_();
 
+$tag->div;
 require '../../footer.php';

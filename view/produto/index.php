@@ -1,20 +1,11 @@
 <?php
+require '../../init.php';
 require '../../header.php';
 require '../helper.php';
 
-$produto = new Produto('');
-
-if(isset($_POST['type']) && ($_POST['type'] == 'disponivel')){
-	$produtos = $produto->select($produto->getTable(), null, [['estoque_inicial','!=', 0]]);
-}elseif(isset($_POST['type']) && ($_POST['type'] == 'indisponivel')){
-	$produtos = $produto->select($produto->getTable(), null, [['estoque_inicial','==', 0]]);
-}else{
-	$produtos = $produto->select($produto->getTable());	
-}
-
 //chama a mensagem de alert 
 helper_modal_alert_confirm();
-
+$tag->link(['rel'=>'stylesheet', 'type'=>'text/css', 'href'=>''.$config['css_path'].'index.css']);
 $tag->script('src="'.$config['js_path'].'index.js"'); $tag->script;	
 
 $form->_row();
@@ -27,18 +18,31 @@ $form->_row();
 
 		$form->_col(12);
 			
-			$form->_col(10);
+			$form->_col(7);
 		  		$tag->span('class="title"');
 		    		$tag->printer($config['labels']['produto']);
 		  		$tag->span;
 		  	$form->col_();
 		  	$options = [ 	//link 		  // label
 		  					[ '#',$config['labels']['disponiveis']   ], 
-		  					[ '#',$config['labels']['indisponiveis'] ]
+		  					[ '#',$config['labels']['indisponiveis'] ],
+		  					[ '#',$config['labels']['todos'] ]
 		  				];
 
-		  	$form->_col(1);
+		  	$options_column = [ 		//link 		  // label
+		  					[ '#',$config['labels']['id']   ], 
+		  					[ '#',$config['labels']['nome'] ],
+		  					[ '#',$config['labels']['preco'] ],
+		  					[ '#',$config['labels']['estoque'] ]
+		  				];
+
+
+		  	$form->_col(2);
 				helper_single_button_dropdown($config['labels']['listar'], $options);
+			$form->col_();
+
+		  	$form->_col(2);
+				helper_single_button_dropdown($config['labels']['listar_coluna'], $options_column, 'load_colum_option_');
 			$form->col_();
 
 			$form->_col(1);	
@@ -66,19 +70,19 @@ $form->_row();
 		        	$tag->tr;
 		      	$tag->thead;
 
-		      	$tag->tbody();
-			        foreach($produtos as $a):
-						$tag->tr();
-							$form->td($a['id']);
-							$form->td($a['nome']);
-							$form->td($a['preco']);
-							$form->td($a['estoque_inicial']);
+		      	$tag->tbody('id="prod-linha"');
+			  //       foreach($produtos as $a):
+					// 	$tag->tr();
+					// 		$form->td($a['id']);
+					// 		$form->td($a['nome']);
+					// 		$form->td($a['preco']);
+					// 		$form->td($a['estoque_inicial']);
 							
-							//parametros aceitaveis
-							//produtos_view_path - produtos_edit_path - produtos_delete_path
-							helper_componentes_buttons(['produtos_view_path','produtos_edit_path','produtos_delete_path'],$a['id']);
-						$tag->tr;
-					endforeach;
+					// 		//parametros aceitaveis
+					// 		//produtos_view_path - produtos_edit_path - produtos_delete_path
+					// 		helper_componentes_buttons(['produtos_view_path','produtos_edit_path','produtos_delete_path'],$a['id']);
+					// 	$tag->tr;
+					// endforeach;
 		      	$tag->tbody;
 		    $tag->table;
 
@@ -88,4 +92,5 @@ $form->_row();
 	$form->_container();
 $form->row_();
 
+$tag->div;
 require '../../footer.php';

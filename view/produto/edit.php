@@ -1,4 +1,5 @@
 <?php
+require '../../init.php';
 require '../../header.php';
 require '../helper.php';
 
@@ -48,4 +49,5 @@ $form->_row();
 	$form->_container();
 $form->row_();
 
+$tag->div;
 require '../../footer.php';
