@@ -1,6 +1,6 @@
 # Desafio Luxfacta - Módulo Produto - Arquivo de Implantação
 ===========
-# Requerimentos e configurações do ambiente para poder rodar o sistema.
+Requerimentos e configurações do ambiente para poder rodar o sistema.
 
 O sistema deve ser implantado num servidor Apache com PHP no Windows .
 Deve ser utilizado um banco de dados Mysql.
