@@ -1,4 +1,7 @@
 <?php
-    	//$tag->script('src="'.$config['base_url'].$config['js_path'].'index.js"'); $tag->script;
+    	$menu['programer'] = $config['menu']['label_programador'];
+    	$menu['copy'] = $config['menu']['label_copyright'];
+
+    	new Components('footer', $menu);
 	$tag->body;
 $tag->html;
