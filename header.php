@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require 'init.php';
+// require 'init.php';
 
 $tag->html();
   $tag->head();
@@ -22,3 +22,18 @@ $tag->html();
   $tag->head;
 
   $tag->body();
+
+  //definicao do menu
+  $menu['nomes'] = [  
+              $config['menu']['label_home'], 
+              $config['menu']['label_novo_produto']
+            ];
+
+  $menu['links'] = [  
+          $config['menu']['link_home'], 
+          $config['base_url'].$config['menu']['link_novo_produto']
+        ];
+
+  new Components('menu', $menu);
+  $tag->br();
+  $tag->br();
