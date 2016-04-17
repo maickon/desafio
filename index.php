@@ -1,7 +1,11 @@
 <?php
 
-require 'header.php';
+    require 'init.php';
 
-require 'body.php';
+	require 'header.php';
 
-require 'footer.php';  
+    require 'body.php';
+
+	require 'footer.php';  
+        
+    
