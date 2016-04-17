@@ -1,10 +1,12 @@
 <?php
 //configuracao do DB
-require 'db/database.php';
+require 'config/db/database.php';
 //configuracao de urls
-require 'routes/routes.php';
+require 'config/routes/routes.php';
 //configuracao de labels
-require 'labels/labels.php';
+require 'config/labels/labels.php';
+//configuracao de menus
+require 'config/menus/menu.php';
 
 //arquivo de configuracao
 $config = 
@@ -20,6 +22,8 @@ $config =
 	'produtos' 		=> $routes,
 	//labels
 	'labels' 		=> $labels,
+	//listagem de itens de menu
+	'menu' 			=> $menu,
 	//nome do projeto
 	'project_name'	=> 'Projeto de Desafio'
 
