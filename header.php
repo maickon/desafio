@@ -25,13 +25,13 @@ $tag->html();
 
   //definicao do menu
   $menu['nomes'] = [  
-              $config['menu']['label_home'], 
-              $config['menu']['label_novo_produto']
+              $config['menu']['label_produto'],
+              $config['menu']['label_outros_projetos'] 
             ];
 
   $menu['links'] = [  
-          $config['menu']['link_home'], 
-          $config['base_url'].$config['menu']['link_novo_produto']
+          $config['base_url'].$config['menu']['link_listar_produto'],
+          $config['base_url'].$config['menu']['link_outros_projetos'] 
         ];
 
   new Components('menu', $menu);
