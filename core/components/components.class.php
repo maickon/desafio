@@ -133,24 +133,23 @@ class MenuBar{
 						// $user = $s->get_session('nome');
 						// if($user):
 						// 	$this->tag->li();
-						// 		$this->tag->a('href="'.PAINEL_PATH.'"');
+						// 		$this->tag->a('href="'.$config['base_url'].'"');
 						// 			$this->tag->printer("Você está logado como $user");
 						// 		$this->tag->a;
 						// 	$this->tag->li;
 							
 						// 	$this->tag->li();
-						// 		$this->tag->a('href="'.ROOTPATHURL.LOGOFF_PATH.'"');
-						// 			$this->tag->printer(SAIR);
+						// 		$this->tag->a('href="'.$config['base_url'].$config['logof_path'].'"');
+						// 			$this->tag->printer($config['log_off']);
 						// 		$this->tag->a;
 						// 	$this->tag->li;
 						// else:
 						// 	$this->tag->li();
-						// 		$this->tag->a('href="'.LOGIN_PATH.'"');
-						// 			$this->tag->printer(LOGAR);
+						// 		$this->tag->a('href="'.$config['base_url'].$config['login_path'].'"');
+						// 			$this->tag->printer("Login");
 						// 		$this->tag->a;
 						// 	$this->tag->li;
 						// endif;			
-						
 					$this->tag->ul;
 											
 				$this->tag->div;//nav-collapse collapse
