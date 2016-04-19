@@ -18,7 +18,7 @@ $form->_row();
 
 		$form->_col(12);
 			
-			$form->_col(7);
+			$form->_col(5);
 		  		$tag->span('class="title"');
 		    		$tag->printer($config['labels']['produto']);
 		  		$tag->span;
@@ -45,6 +45,12 @@ $form->_row();
 				helper_single_button_dropdown($config['labels']['listar_coluna'], $options_column, 'load_colum_option_');
 			$form->col_();
 
+			$form->_col(2);	
+			    $tag->a('href="#" onClick="reset();" class="btn btn-default"');
+			    	$tag->printer($config['labels']['reset_filtro_btn']);
+			    $tag->a;
+			$form->col_();
+
 			$form->_col(1);	
 			    $tag->a('href="'.$config['produtos']['produtos_new_file'].'" data-bind="click: addProduto" class="btn btn-primary"');
 			    	$tag->printer($config['labels']['new']);
@@ -53,7 +59,7 @@ $form->_row();
 
 	    	$tag->table('id="example" class="display table table-striped table-bordered dataTable no-footer"');
 		      	$tag->thead();
-		        	$tag->tr('role="row"');
+		        	$tag->tr('id="head" role="row"');
 		        		$form->th($config['labels']['id']);
 			        	
 						$form->th($config['labels']['nome']);

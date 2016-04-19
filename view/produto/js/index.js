@@ -10,6 +10,9 @@ $(document).ready(function(){
     })
 });
 
+function reset(){ 
+  location.reload();
+}
 
 $(document).ready(function(){
   $("#preco").maskMoney({
@@ -61,8 +64,8 @@ function diminuir_estoque(indice, id){
   var valor_estoque = $("#input_estoque_"+indice).val();
   var valor_estoque_decrementado = parseInt(valor_estoque)-1;
   
-  if(valor_estoque_decrementado < 0){
-    valor_estoque_decrementado = 0;
+  if(valor_estoque_decrementado <= 0){
+    valor_estoque_decrementado = 0.0;
   } 
 
   $("#input_estoque_"+indice).val(valor_estoque_decrementado);
