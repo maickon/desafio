@@ -49,7 +49,7 @@ $labels =
 		'modal_no_msg'			=> 'Não',
 		'modal_delete_msg1'		=> 'Você está prestes a deletar um produto. Este processo é irreversível.',
 		'modal_delete_msg2'		=> 'Você tem certeza disso?',
-		'modal_delete_confirm_msg' => 'Confirmar para deletar produto'
+		'modal_delete_confirm_msg' => 'Confirmar para deletar produto',
 
-
+		'reset_filtro_btn'		=> 'Resetar filtro'
 	];
